@@ -32,7 +32,7 @@ Route::post('/login', function(Request $request){
 
 Route::post('/run_migrations', function(Request $request) {
 
-    if($request->user === $_ENV['USR_EXEC_SUPORT'] && $request->password === $_ENV['PASS_EXEC_SEED']){
+    if($request->user === $_ENV['USR_EXEC_SUPORT'] && $request->password === $_ENV['PASS_EXEC_MIGRATION']){
         try {
             Artisan::call('migrate', ["--force" => true ]);
             return response()->json("Artisan migration em execução", 200);

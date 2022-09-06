@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
         //\App\Models\User::factory(10)->create();
         \App\Models\User::create(
             array(
-                'name' => 'Admin', 
-                'email'=>'admin@email.com', 
+                'name'=>$_ENV['USR_ADMIN_NAME'], 
+                'email'=>$_ENV['USR_ADMIN_EMAIL'], 
                 'email_verified_at'=>strtotime('01/01/2000 01:00:00'),
-                'password' => bcrypt('administrator060617')
+                'password' => bcrypt($_ENV['USR_ADMIN_SENHA'])
             )
         );
     }
